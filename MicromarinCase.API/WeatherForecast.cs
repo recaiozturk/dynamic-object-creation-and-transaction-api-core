@@ -1,4 +1,4 @@
-namespace MicromarinCase
+namespace MicromarinCase.API
 {
     public class WeatherForecast
     {
