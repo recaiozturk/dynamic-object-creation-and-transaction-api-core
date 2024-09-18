@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MicromarinCase.Repositories\MicromarinCase.Repositories.csproj" />
+  </ItemGroup>
+
 </Project>
