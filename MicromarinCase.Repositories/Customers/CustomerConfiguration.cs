@@ -1,15 +1,15 @@
 ﻿
 
+using MicromarinCase.Repositories.Products;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace MicromarinCase.Repositories.Customers
 {
-    public class CustomerConfiguration:IEntityTypeConfiguration<Customer>
+    public class CustomerConfiguration:IEntityTypeConfiguration<Product>
     {
-        public void Configure(EntityTypeBuilder<Customer> builder)
+        public void Configure(EntityTypeBuilder<Product> builder)
         {
-            builder.HasKey(x => x.Id);
             builder.Property(x => x.Name).IsRequired().HasMaxLength(150);
         }
     }

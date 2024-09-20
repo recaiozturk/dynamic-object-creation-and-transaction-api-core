@@ -1,4 +1,6 @@
+using MicromarinCase.Repositories;
 using MicromarinCase.Repositories.Extensions;
+using MicromarinCase.Repositories.Products;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,10 +13,22 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddRepositories(builder.Configuration);
 
+
+
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+//using (var scope = app.Services.CreateScope())
+//{
+//    var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContex>();
+
+//    var product = dbContext.Products.FirstOrDefault();
+
+//    dbContext.Products.Remove(product);
+//    dbContext.SaveChanges();
+//}
+
+    // Configure the HTTP request pipeline.
+    if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();

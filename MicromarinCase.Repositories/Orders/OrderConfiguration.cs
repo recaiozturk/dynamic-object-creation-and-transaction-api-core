@@ -10,8 +10,11 @@ namespace MicromarinCase.Repositories.Orders
     {
         public void Configure(EntityTypeBuilder<Order> builder)
         {
-            builder.HasKey(x => x.Id);
             builder.Property(x => x.OrderDate).IsRequired();
+
+            builder.HasOne(o => o.Customer)
+                .WithMany(c => c.Orders)
+                .HasForeignKey(o => o.CustomerId).OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

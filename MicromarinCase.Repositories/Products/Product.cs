@@ -6,8 +6,8 @@ namespace MicromarinCase.Repositories.Products
 {
     public class Product:BaseTable
     {
-        public string ProductName { get; set; } = default!;
+        public string Name { get; set; } = default!;
         public decimal Price { get; set; }
-        public List<OrderDetail> OrderDetails { get; set; } = default!;
+        public List<OrderDetail>? OrderDetails { get; set; } 
     }
 }
