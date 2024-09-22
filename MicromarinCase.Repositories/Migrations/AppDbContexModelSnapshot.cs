@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MicromarinCase.Repositories.Migrations
 {
-    [DbContext(typeof(AppDbContex))]
+    [DbContext(typeof(AppDbContext))]
     partial class AppDbContexModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

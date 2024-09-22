@@ -9,7 +9,7 @@ using System.Reflection;
 
 namespace MicromarinCase.Repositories
 {
-    public class AppDbContex(DbContextOptions<AppDbContex> options) : DbContext(options)
+    public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
     {
         public DbSet<BaseTable> BaseTables { get; set; }
         public DbSet<Customer> Customers { get; set; }
@@ -22,6 +22,8 @@ namespace MicromarinCase.Repositories
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
             modelBuilder.Entity<BaseTable>().HasQueryFilter(p => !p.IsDeleted);
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

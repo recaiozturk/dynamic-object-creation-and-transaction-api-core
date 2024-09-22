@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MicromarinCase.Repositories.Migrations
 {
-    [DbContext(typeof(AppDbContex))]
+    [DbContext(typeof(AppDbContext))]
     [Migration("20240920172715_InitialCreate")]
     partial class InitialCreate
     {

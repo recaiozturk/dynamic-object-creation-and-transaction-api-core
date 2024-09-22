@@ -1,5 +1,6 @@
 ﻿
 
+using MicromarinCase.Repositories.Products;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,7 +12,7 @@ namespace MicromarinCase.Repositories.Extensions
     {
         public static IServiceCollection AddRepositories(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<AppDbContex>(options =>
+            services.AddDbContext<AppDbContext>(options =>
             {
 
                 var connectionStrings = configuration.GetSection(ConnectionStringOption.Key).Get<ConnectionStringOption>();
@@ -22,6 +23,10 @@ namespace MicromarinCase.Repositories.Extensions
                 });
 
             });
+
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             return services;
         }
