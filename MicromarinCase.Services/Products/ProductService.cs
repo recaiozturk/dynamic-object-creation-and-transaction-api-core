@@ -3,7 +3,6 @@ using MicromarinCase.Repositories.Products;
 using MicromarinCase.Services.Products.Create;
 using MicromarinCase.Services.Products.Update;
 using AutoMapper;
-using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using System.Net;
 
@@ -27,10 +26,6 @@ namespace MicromarinCase.Services.Products
 
             if (product is null)
                 return ServiceResult<ProductDto?>.Fail("Product not found", HttpStatusCode.NotFound);
-
-            #region manual mapping
-            //var productAsDto = new ProductDto(product!.Id, product.Name , product.Price, product.Stock);
-            #endregion
 
             var productAsDto = mapper.Map<ProductDto>(product);
 

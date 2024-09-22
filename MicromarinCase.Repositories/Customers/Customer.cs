@@ -7,6 +7,6 @@ namespace MicromarinCase.Repositories.Customers
     public class Customer:BaseTable
     {
         public string Name { get; set; } = default!;
-        public List<Order> Orders { get; set; } = default!;
+        public List<Order> Orders { get; set; } =  new List<Order>();
     }
 }
