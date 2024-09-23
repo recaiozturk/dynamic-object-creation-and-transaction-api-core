@@ -11,7 +11,6 @@ namespace MicromarinCase.Services.Orders
     {
         public DateTime OrderDate { get; set; }
         public int CustomerId { get; set; }
-        public CustomerDto Customer { get; set; } = default!;
         public List<OrderDetailDto> OrderDetails { get; set; } = default!;
     }
 }

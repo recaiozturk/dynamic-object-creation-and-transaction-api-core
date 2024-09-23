@@ -1,10 +1,11 @@
 ﻿
 
+using MicromarinCase.Repositories.Orders;
 using MicromarinCase.Repositories.Products;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
+
 
 namespace MicromarinCase.Repositories.Extensions
 {
@@ -25,6 +26,7 @@ namespace MicromarinCase.Repositories.Extensions
             });
 
             services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 

@@ -5,16 +5,15 @@ using AutoMapper;
 
 namespace MicromarinCase.Services.Products
 {
-    public class ProductMappingProfiler : Profile
+    public class OrderMappingProfiler : Profile
     {
-        public ProductMappingProfiler()
+        public OrderMappingProfiler()
         {
             CreateMap<Product, ProductDto>().ReverseMap();
 
-            //CreateMap<CreateProductRequest, Product>().ForMember(dest => dest.OrderDetails, opt => opt.MapFrom(src => src.OrderDetails));
             CreateMap<CreateProductRequest, Product>().ReverseMap();
 
-            CreateMap<UpdateProductRequest, Product>().ForMember(des => des.Name, opt => opt.MapFrom(src => src.Name.ToLowerInvariant()));
+            CreateMap<UpdateProductRequest, Product>().ReverseMap();
         }
     }
 }

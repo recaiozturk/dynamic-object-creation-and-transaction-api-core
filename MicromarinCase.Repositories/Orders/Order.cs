@@ -9,6 +9,6 @@ namespace MicromarinCase.Repositories.Orders
         public DateTime OrderDate { get; set; }
         public int CustomerId { get; set; }
         public Customer Customer { get; set; } = default!;
-        public List<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
+        public List<OrderDetail> OrderDetails { get; set; } = default!;
     }
 }
