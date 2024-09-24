@@ -1,8 +1,6 @@
 ﻿
-using MicromarinCase.Repositories.Customers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System.Reflection.Emit;
 
 namespace MicromarinCase.Repositories.OrderDetails
 {

@@ -1,14 +1,8 @@
-using FluentValidation;
-using FluentValidation.AspNetCore;
-using MicromarinCase.Repositories;
+
 using MicromarinCase.Repositories.Extensions;
-using MicromarinCase.Repositories.Products;
 using MicromarinCase.Services;
-using MicromarinCase.Services.ExceptionHandler;
 using MicromarinCase.Services.Extensions;
-using MicromarinCase.Services.Products;
 using Microsoft.AspNetCore.Mvc;
-using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 

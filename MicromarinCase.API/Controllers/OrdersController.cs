@@ -1,7 +1,4 @@
-﻿using MicromarinCase.Services.Products.Create;
-using MicromarinCase.Services.Products.Update;
-using MicromarinCase.Services.Products;
-using Microsoft.AspNetCore.Http;
+﻿
 using Microsoft.AspNetCore.Mvc;
 using MicromarinCase.Services.Orders;
 using MicromarinCase.Services.Orders.Create;

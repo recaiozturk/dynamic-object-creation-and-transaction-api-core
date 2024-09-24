@@ -1,12 +1,10 @@
 ﻿
 using AutoMapper;
 using MicromarinCase.Repositories.OrderDetails;
-using MicromarinCase.Repositories.Orders;
-using MicromarinCase.Services.OrderDetails;
-using MicromarinCase.Services.Orders.Create;
-using MicromarinCase.Services.Orders.Update;
+using MicromarinCase.Services.OrderDetails.Create;
+using MicromarinCase.Services.OrderDetails.Update;
 
-namespace MicromarinCase.Services.Orders
+namespace MicromarinCase.Services.OrderDetails
 {
     public class OrderDetailMappingProfiler : Profile
     {
@@ -14,9 +12,10 @@ namespace MicromarinCase.Services.Orders
         {
             CreateMap<OrderDetail, OrderDetailDto>().ReverseMap();
 
-            //CreateMap<CreateOrderRequest, Order>().ReverseMap();
+            CreateMap<CreateOrderDetailRequest, OrderDetail>().ReverseMap();
 
-            //CreateMap<UpdateOrdertRequest, Order>().ReverseMap();
+            CreateMap<UpdateOrderDetailRequest, OrderDetail>().ReverseMap();
         }
+
     }
 }

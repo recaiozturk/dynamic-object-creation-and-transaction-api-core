@@ -7,6 +7,7 @@ using FluentValidation.AspNetCore;
 using FluentValidation;
 using MicromarinCase.Services.ExceptionHandler;
 using MicromarinCase.Services.Orders;
+using MicromarinCase.Services.OrderDetails;
 
 namespace MicromarinCase.Services.Extensions
 {
@@ -14,6 +15,7 @@ namespace MicromarinCase.Services.Extensions
     {
         public static IServiceCollection AddServices(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddScoped<IOrderDetailService, OrderDetailService>();
             services.AddScoped<IOrderService, OrderService>();
             services.AddScoped<IProductService, ProductService>();
 

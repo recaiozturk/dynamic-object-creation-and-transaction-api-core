@@ -1,5 +1,6 @@
 ﻿
 
+using MicromarinCase.Repositories.OrderDetails;
 using MicromarinCase.Repositories.Orders;
 using MicromarinCase.Repositories.Products;
 using Microsoft.EntityFrameworkCore;
@@ -25,6 +26,7 @@ namespace MicromarinCase.Repositories.Extensions
 
             });
 
+            services.AddScoped<IOrderDetailRepository, OrderDetailRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));

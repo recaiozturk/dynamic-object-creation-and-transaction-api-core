@@ -1,9 +1,8 @@
 ﻿
 using FluentValidation;
-using MicromarinCase.Services.Orders.Create;
 
 
-namespace MicromarinCase.Services.Products.Create
+namespace MicromarinCase.Services.Orders.Create
 {
     public class CreateOrderRequestValidater : AbstractValidator<CreateOrderRequest>
     {
