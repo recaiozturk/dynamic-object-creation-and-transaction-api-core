@@ -1,5 +1,6 @@
 ﻿
 
+using MicromarinCase.Repositories.Customers;
 using MicromarinCase.Repositories.OrderDetails;
 using MicromarinCase.Repositories.Orders;
 using MicromarinCase.Repositories.Products;
@@ -26,6 +27,7 @@ namespace MicromarinCase.Repositories.Extensions
 
             });
 
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
             services.AddScoped<IOrderDetailRepository, OrderDetailRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IOrderRepository, OrderRepository>();

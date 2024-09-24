@@ -8,6 +8,7 @@ using FluentValidation;
 using MicromarinCase.Services.ExceptionHandler;
 using MicromarinCase.Services.Orders;
 using MicromarinCase.Services.OrderDetails;
+using MicromarinCase.Services.Customers;
 
 namespace MicromarinCase.Services.Extensions
 {
@@ -15,6 +16,7 @@ namespace MicromarinCase.Services.Extensions
     {
         public static IServiceCollection AddServices(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddScoped<ICustomerService,CustomerService>();
             services.AddScoped<IOrderDetailService, OrderDetailService>();
             services.AddScoped<IOrderService, OrderService>();
             services.AddScoped<IProductService, ProductService>();
