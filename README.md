@@ -5,6 +5,7 @@
 - .NET -v8
 - Entity Framework Core
 - AutoMapper for object mapping
+- Fluent Validation
 - Generic Repository-Service-UnitOfWork Patterns
 
 ### Database
