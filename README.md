@@ -1,7 +1,7 @@
 ## Tech Stack 
 
 ### Back End
-- ASP.NET Core 
+- ASP.NET Core Web API 
 - .NET -v8
 - Entity Framework Core
 - AutoMapper for object mapping
