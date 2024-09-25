@@ -6,17 +6,15 @@ using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//default hata mesajlari
 builder.Services.Configure<ApiBehaviorOptions>(options => options.SuppressModelStateInvalidFilter = true);
 
 builder.Services.AddControllers(options =>
 {
     options.Filters.Add<FluentValidationFilter>();
-    options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true; //requried alanlarýn hata gösterimini kapatýr
+    options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true;
 });
 
 // Add services to the container.
-
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
