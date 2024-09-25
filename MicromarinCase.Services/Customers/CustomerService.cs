@@ -11,13 +11,32 @@ namespace MicromarinCase.Services.Customers
 {
     public class CustomerService(ICustomerRepository customerRepository,IUnitOfWork unitOfWork,IMapper mapper):ICustomerService
     {
+        public async Task<ServiceResult<CustomerWithOrdersDto>> GetCustomerWithOrdersAsync(int id)
+        {
+            var customer = await customerRepository.GetByIdAsync(id);
+
+            if (customer is null)
+                return ServiceResult<CustomerWithOrdersDto?>.Fail("Müşteri bulunamadi", HttpStatusCode.NotFound);
+
+            var customerWithOrders = await customerRepository.GetCustomerWithOrdersAsync(id);
+            var customersWithOrdersAsDto = mapper.Map<CustomerWithOrdersDto>(customerWithOrders);
+            return ServiceResult<CustomerWithOrdersDto>.Success(customersWithOrdersAsDto);
+        }
+
         public async Task<ServiceResult<List<CustomerDto>>> GetAllListAsync()
         {
             var customers = await customerRepository.GetAll().ToListAsync();
 
             var customersAsDto = mapper.Map<List<CustomerDto>>(customers);
 
+            #region hata örnek
+            //throw new CriticalException("kritik seviye hata meydana geldi");
+            //throw new Exception("global hata meydana geldi");
+            #endregion
+
             return ServiceResult<List<CustomerDto>>.Success(customersAsDto);
+
+
         } 
   
         public async Task<ServiceResult<CustomerDto?>> GetByIdAsync(int id)

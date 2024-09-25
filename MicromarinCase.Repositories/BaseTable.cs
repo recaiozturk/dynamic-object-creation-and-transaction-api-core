@@ -1,7 +1,4 @@
 ﻿
-
-using System.ComponentModel.DataAnnotations;
-
 namespace MicromarinCase.Repositories
 {
     public  abstract class BaseTable

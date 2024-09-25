@@ -3,5 +3,5 @@ using MicromarinCase.Services.Orders;
 
 namespace MicromarinCase.Services.Customers.Create
 {
-    public record CreateCustomerRequest(string Name, List<OrderDto>? Orders);
+    public record CreateCustomerRequest(string Name);
 }

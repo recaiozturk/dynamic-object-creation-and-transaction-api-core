@@ -11,6 +11,8 @@ namespace MicromarinCase.Services.Products
         {
             CreateMap<Product, ProductDto>().ReverseMap();
 
+            CreateMap<Product, ProductWithOrderDetailDto>().ReverseMap();
+
             CreateMap<CreateProductRequest, Product>().ReverseMap();
 
             CreateMap<UpdateProductRequest, Product>().ReverseMap();

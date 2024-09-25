@@ -1,6 +1,6 @@
 ﻿
-
 using MicromarinCase.Repositories.Customers;
+using MicromarinCase.Repositories.Intercepters;
 using MicromarinCase.Repositories.OrderDetails;
 using MicromarinCase.Repositories.Orders;
 using MicromarinCase.Repositories.Products;
@@ -24,6 +24,8 @@ namespace MicromarinCase.Repositories.Extensions
                 {
                     sqlServerOptionsAction.MigrationsAssembly(typeof(RepositoryAsambly).Assembly.FullName);
                 });
+
+                options.AddInterceptors(new BaseTableDbContextIntercepter());
 
             });
 

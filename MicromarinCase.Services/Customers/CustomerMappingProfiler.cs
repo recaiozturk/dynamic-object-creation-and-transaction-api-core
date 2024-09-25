@@ -11,10 +11,9 @@ namespace MicromarinCase.Services.Customers
         public CustomerMappingProfiler()
         {
             CreateMap<Customer, CustomerDto>().ReverseMap();
-
+            CreateMap<Customer, CustomerWithOrdersDto>().ReverseMap();
             CreateMap<CreateCustomerRequest, Customer>().ReverseMap();
-
-            CreateMap<UpdateCustomerRequest, Customer>().ReverseMap();
+            CreateMap<UpdateCustomerRequest, Customer>().ReverseMap(); 
         }
     }
 }

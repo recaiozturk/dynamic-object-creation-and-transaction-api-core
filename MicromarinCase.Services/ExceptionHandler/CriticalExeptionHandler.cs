@@ -1,10 +1,5 @@
 ﻿using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MicromarinCase.Services.ExceptionHandler
 {
@@ -14,10 +9,11 @@ namespace MicromarinCase.Services.ExceptionHandler
         {
             if(exception is CriticalException)
             {
-                Console.WriteLine("hata ile ilgili sms gönderildi");
+                //sms,mail vs gönderilebilir
+                //Console.WriteLine("hata ile ilgili sms gönderildi");
             }
 
-            return ValueTask.FromResult(false);  //bir sonraki handlera uğra
+            return ValueTask.FromResult(false);
         }
     }
 }

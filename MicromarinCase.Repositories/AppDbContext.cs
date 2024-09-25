@@ -4,7 +4,6 @@ using MicromarinCase.Repositories.OrderDetails;
 using MicromarinCase.Repositories.Orders;
 using MicromarinCase.Repositories.Products;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Reflection;
 
 namespace MicromarinCase.Repositories

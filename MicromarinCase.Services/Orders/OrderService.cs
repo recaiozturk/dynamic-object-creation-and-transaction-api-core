@@ -7,10 +7,23 @@ using MicromarinCase.Services.Orders.Create;
 using MicromarinCase.Services.Orders.Update;
 
 
+
 namespace MicromarinCase.Services.Orders
 {
     public class OrderService(IOrderRepository orderRepository,IUnitOfWork unitOfWork,IMapper mapper):IOrderService
     {
+        public async Task<ServiceResult<OrderWithOrderDetailsDto>> GetOrderWithOrderDetailsAsync(int id)
+        {
+            var order = await orderRepository.GetByIdAsync(id);
+
+            if (order is null)
+                return ServiceResult<OrderWithOrderDetailsDto?>.Fail("Sipariş bulunamadi", HttpStatusCode.NotFound);
+
+            var orderWithOrders = await orderRepository.GetOrderWithOrderDetailsAsync(id);
+            var ordersWithOrdersAsDto = mapper.Map<OrderWithOrderDetailsDto>(orderWithOrders);
+            return ServiceResult<OrderWithOrderDetailsDto>.Success(ordersWithOrdersAsDto);
+        }
+
         public async Task<ServiceResult<List<OrderDto>>> GetAllListAsync()
         {
             var orders = await orderRepository.GetAll().ToListAsync();
@@ -35,8 +48,6 @@ namespace MicromarinCase.Services.Orders
 
         public async Task<ServiceResult<CreateOrderResponse>> CreateAsync(CreateOrderRequest request)
         {
-
-
             var order =mapper.Map<Order>(request);
 
             await orderRepository.AddAsync(order);

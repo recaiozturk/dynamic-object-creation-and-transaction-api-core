@@ -1,7 +1,6 @@
 ﻿
 using FluentValidation;
 
-
 namespace MicromarinCase.Services.Customers.Create
 {
     public class CreateCustomerRequestValidater : AbstractValidator<CreateCustomerRequest>
@@ -9,7 +8,7 @@ namespace MicromarinCase.Services.Customers.Create
         public CreateCustomerRequestValidater()
         {
 
-            RuleFor(x => x.Name).NotNull().WithMessage("Müşteri ismi Boş geçilemez");
+            RuleFor(x => x.Name).NotEmpty().WithMessage("Müşteri ismi Boş geçilemez");
 
         }
     }

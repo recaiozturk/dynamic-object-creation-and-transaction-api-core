@@ -22,6 +22,12 @@ namespace MicromarinCase.API.Controllers
             return CreateActionResult(await orderService.GetByIdAsync(id));
         }
 
+        [HttpGet("{id}/order-details")]
+        public async Task<IActionResult> GetOrderWithOrderDetails(int id)
+        {
+            return CreateActionResult(await orderService.GetOrderWithOrderDetailsAsync(id));
+        }
+
         [HttpPost]
         public async Task<IActionResult> Create(CreateOrderRequest request)
         {

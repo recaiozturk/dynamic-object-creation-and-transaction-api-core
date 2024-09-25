@@ -12,6 +12,8 @@ namespace MicromarinCase.Services.Orders
         {
             CreateMap<Order, OrderDto>().ReverseMap();
 
+            CreateMap<Order, OrderWithOrderDetailsDto>().ReverseMap();
+
             CreateMap<CreateOrderRequest, Order>().ReverseMap();
 
             CreateMap<UpdateOrdertRequest, Order>().ReverseMap();

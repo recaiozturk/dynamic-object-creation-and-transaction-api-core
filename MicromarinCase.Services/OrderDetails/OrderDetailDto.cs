@@ -1,6 +1,4 @@
 ﻿
-
-
 namespace MicromarinCase.Services.OrderDetails
 {
     public record class OrderDetailDto

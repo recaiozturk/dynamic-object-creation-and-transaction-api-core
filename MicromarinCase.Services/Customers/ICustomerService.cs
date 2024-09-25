@@ -6,6 +6,7 @@ namespace MicromarinCase.Services.Customers
 {
     public interface ICustomerService
     {
+        Task<ServiceResult<CustomerWithOrdersDto>> GetCustomerWithOrdersAsync(int id);
         Task<ServiceResult<List<CustomerDto>>> GetAllListAsync();
         Task<ServiceResult<CustomerDto?>> GetByIdAsync(int id);
         Task<ServiceResult<CreateCustomerResponse>> CreateAsync(CreateCustomerRequest request);

@@ -6,11 +6,22 @@ using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using System.Net;
 
-
 namespace MicromarinCase.Services.Products
 {
     public class ProductService(IProductRepository productRepository,IUnitOfWork unitOfWork,IMapper mapper):IProductService
     {
+        public async Task<ServiceResult<ProductWithOrderDetailDto>> GetProductWithOrderDetailsAsync(int id)
+        {
+            var product = await productRepository.GetByIdAsync(id);
+
+            if (product is null)
+                return ServiceResult<ProductWithOrderDetailDto?>.Fail("ürün bulunamadi", HttpStatusCode.NotFound);
+
+            var productWithOrders = await productRepository.GetProdcutWithOrderDetailsAsync(id);
+            var productWithOrdersAsDto = mapper.Map<ProductWithOrderDetailDto>(productWithOrders);
+            return ServiceResult<ProductWithOrderDetailDto>.Success(productWithOrdersAsDto);
+        }
+
         public async Task<ServiceResult<List<ProductDto>>> GetAllListAsync()
         {
             var products=await productRepository.GetAll().ToListAsync();
@@ -54,7 +65,6 @@ namespace MicromarinCase.Services.Products
             if (product is null)
                 return ServiceResult.Fail("Product Not Found", HttpStatusCode.NotFound);
 
-            //validation 2. yol asenkron manual service businecc check
             var isProductNameExits = await productRepository.Where(x => x.Name == request.Name && x.Id!=product.Id).AnyAsync();
             if (isProductNameExits)
                 return ServiceResult.Fail("Güncellenecek ürün  bulunmaktadır");
@@ -75,7 +85,6 @@ namespace MicromarinCase.Services.Products
             if (product is null)
                 return ServiceResult.Fail("Product Not Found", HttpStatusCode.NotFound);
 
-            //productRepository.Delete(product);
             product.IsDeleted=true;
             await unitOfWork.SaveChangeAsync();
 
